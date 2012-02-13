@@ -22,7 +22,6 @@ static inline double radians(double degrees) { return degrees * PI / 180; }
     //[self method001:self];
 }
 
-
 #pragma mark +transform
 - (IBAction)method001:(id)sender {
     //make bezier path
