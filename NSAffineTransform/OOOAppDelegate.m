@@ -238,5 +238,43 @@ static inline double radians(double degrees) { return degrees * PI / 180; }
     [_window.contentView unlockFocus];
     [_window.contentView displayIfNeeded];
 }
+#pragma mark -scaleXBy:yBy:
+- (IBAction)method006:(id)sender {
+    //make bezier path
+	NSBezierPath *thePath1 = [NSBezierPath bezierPath];
+	
+    //make affin transform
+    NSAffineTransform *affin = [NSAffineTransform transform];
+	
+    //focus window's view
+    [_window.contentView lockFocus];
+    //clear window
+    NSRect rect = [_window.contentView frame ];
+    [[NSColor windowBackgroundColor] set];
+    NSRectFill(rect);
+    //set winding rule
+    [thePath1 setWindingRule:NSEvenOddWindingRule];
+    //move pen
+    [thePath1 moveToPoint:NSMakePoint(20,20)];
+    //make path
+    [thePath1 appendBezierPathWithOvalInRect:NSMakeRect(50,50,100,100)];
+    [thePath1 appendBezierPathWithOvalInRect:NSMakeRect(20,20,80,80)];
+    //set color
+    [[NSColor blueColor] set];
+    
+    //fill path
+    [thePath1 fill];
+    
+    //set transform
+    [affin scaleXBy:1.5 yBy:3.0];
+    [thePath1 transformUsingAffineTransform: affin];
+    
+    //set color
+    [[NSColor redColor] set];
+    [thePath1 fill];
+    //unlock focus
+    [_window.contentView unlockFocus];
+    [_window.contentView displayIfNeeded];
+}
 
 @end
