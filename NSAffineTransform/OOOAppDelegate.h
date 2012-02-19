@@ -17,7 +17,7 @@
 - (IBAction)method003:(id)sender;
 - (IBAction)method004:(id)sender;
 - (IBAction)method005:(id)sender;
-
 - (IBAction)method006:(id)sender;
+- (IBAction)method007:(id)sender;
 
 @end
